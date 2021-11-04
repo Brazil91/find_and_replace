@@ -26,8 +26,10 @@ def find_and_replace(csv_path, search_expr: list, replace_expr: list):
 if __name__ == '__main__':
     for file_names in items:
         if file_names.endswith(".csv"):
-            csv_path = os.path.join(file_dir, file_names)
-            
+            csv_path = os.path.join(file_dir, 'new', file_names)
+            if not os.path.exists(csv_path):
+                os.makedirs(csv_path)
+
             search_characters = ['Bezechnung', '', '']
             replace_with = ['Bezeichnung', '', ''] 
             
